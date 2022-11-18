@@ -81,21 +81,28 @@ function totalCal(event) {
     let typeOfWork = document.getElementById("inputWork").value;
     let discountCode = document.getElementById("inputDiscount").value;
     let discountNumber;
-
+    
 
     if(!discountCode) {
         discountNumber = 0;
+        document.getElementById("error").style.color="black";
+        document.getElementById("inputDiscount").style.border = "";
     } else if(searchDiscount(discountCode)) {
         discountNumber = 25;
+        document.getElementById("error").style.color="black";
+        document.getElementById("inputDiscount").style.border = "";
     } else {
-        //document.getElementById("inputDiscount").style.color="red";
+        document.getElementById("error").style.color="red";
+        document.getElementById("inputDiscount").style.border = "3px solid #FF0000";
+        
         alert("Codice sconto errato, non verrà applicato nessuno sconto");
-        discountNumber = 0}
+        discountNumber = 0
+    }
     console.log(hoursNumber,  workTypeArray[typeOfWork-1], discountNumber);
    
 
     console.log(calcolatore(hoursNumber, workTypeArray[typeOfWork-1], discountNumber));
-    let totalPrice = document.getElementById("totalPrice").innerHTML= calcolatore(hoursNumber, workTypeArray[typeOfWork-1], discountNumber);
+    let totalPrice = document.getElementById("totalPrice").innerHTML= calcolatore(hoursNumber, workTypeArray[typeOfWork-1], discountNumber).toFixed();
 
 }
 
