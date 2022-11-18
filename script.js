@@ -51,3 +51,22 @@ for (let i = 0; i < ourServices.length; i ++) {
     collezione_preview[i].innerHTML = ourServices[i].preview;
     collezione_visit[i].innerHTML = ourServices[i].visit;
 }
+
+//Calcolo del prezzo totale per i servizi di web developing
+
+let x = 10;
+let y = 2;
+
+
+console.log(totalCal());
+
+function calcolatore(hour, type, discount) {
+    return (hour * type - ((hour * type * discount) / 100));
+}
+
+function totalCal() {
+    let hoursNumber = document.getElementById("inputHours");
+    let typeOfWork = document.getElementById("inputWork");
+    calcolatore()
+}
+
