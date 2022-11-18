@@ -1,3 +1,4 @@
+
 //Arrai di oggetti contenenti le info delle cards
 let ourServices = [  
     {
@@ -54,19 +55,43 @@ for (let i = 0; i < ourServices.length; i ++) {
 
 //Calcolo del prezzo totale per i servizi di web developing
 
-let x = 10;
-let y = 2;
+let workTypeArray = [15.30, 20.50, 33.60];
+let discountArray = ["YHDNU32", "JANJC63","PWKCN25", "SJDPO96", "POCIE24"];
+
+function searchDiscount(discount) {
+    for (let i = 0; i < discountArray.length; i ++) {
+        if (discount == discountArray[i]) {
+            return true;
+        }
+    }
+    return false;
+}
 
 
-console.log(totalCal());
 
 function calcolatore(hour, type, discount) {
     return (hour * type - ((hour * type * discount) / 100));
 }
 
-function totalCal() {
-    let hoursNumber = document.getElementById("inputHours");
-    let typeOfWork = document.getElementById("inputWork");
-    calcolatore()
+function totalCal(event) {
+    event.preventDefault();
+
+
+    let hoursNumber = document.getElementById("inputHours").value;
+    let typeOfWork = document.getElementById("inputWork").value;
+    let discountCode = document.getElementById("inputDiscount").value;
+    let discountNumber;
+    if(!discountCode) {
+        discountNumber = 0;
+    } else if(searchDiscount(discountCode)) {
+        discountNumber = 25;
+    } else {
+        //document.getElementById("inputDiscount").style.color="red";
+        discountNumber = 0}
+    console.log(hoursNumber,  workTypeArray[typeOfWork-1], discountNumber);
+   
+
+    console.log(calcolatore(hoursNumber, workTypeArray[typeOfWork-1], discountNumber));
+
 }
 

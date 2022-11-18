@@ -108,7 +108,7 @@
             </div>
         </div>
 
-        <form onsubmit="totlCal()">
+        <form id="myForm" onsubmit="totalCal(event)">
         <div class="container-fluid">
             <div class="row p-5 bg-info">
                 
@@ -138,15 +138,15 @@
 
                 <div class="col-12 col-md-6 p-3">
                     <label class="form-label">Hour requested</label>
-                    <input type="text" class="form-control" id="inputHour">
+                    <input type="text" class="form-control" id="inputHours">
                 </div>
 
                 <div class="col-12 col-md-6 p-3">
                     <label class="form-label">Type of Work</label>
                     <select class="form-select" id="inputWork">
-                        <option>Frontend development</option>
-                        <option>Backtend development</option>
-                        <option>Full-stack development</option>
+                        <option value="1">Frontend development</option>
+                        <option value="2">Backtend development</option>
+                        <option value="3">Full-stack development</option>
                     </select>    
                 </div>
 
@@ -164,10 +164,8 @@
 
 
                 <div class="col-12 p-3 text-center">
-                    <botton type="submit" class="btn btn-warning">
-                    Send
-                    </botton>
-                </Div>
+                    <input type="submit" value="Send" class="btn btn-warning">
+                </div>
         
 
                 <h3 class="" id="totalPrice"></h3>
